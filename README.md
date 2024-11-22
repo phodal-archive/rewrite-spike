@@ -69,7 +69,7 @@ In the pom.xml of a different project you wish to test your recipe out in, make 
                 <version>RELEASE</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>com.phodal.rewrite.NoGuavaListsNewArrayList</recipe>
+                        <recipe>org.archguard.rewrite.NoGuavaListsNewArrayList</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>
@@ -104,7 +104,7 @@ dependencies {
 }
 
 rewrite {
-    activeRecipe("com.phodal.rewrite.NoGuavaListsNewArrayList")
+    activeRecipe("org.archguard.rewrite.NoGuavaListsNewArrayList")
 }
 ```
 

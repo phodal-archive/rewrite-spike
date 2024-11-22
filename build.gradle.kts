@@ -86,11 +86,11 @@ publishing {
             pom {
                 name.set("Chapi")
                 description.set("Chapi is A common language meta information convertor, convert different languages to same meta-data model")
-                url.set("https://github.com/phodal/chapi")
+                url.set("https://github.com/phodal-archive/rewrite-spike")
                 licenses {
                     license {
                         name.set("MPL 2.0")
-                        url.set("https://github.com/phodal/chapi/blob/master/LICENSE")
+                        url.set("https://github.com/phodal-archive/rewrite-spike/blob/master/LICENSE")
                     }
                 }
                 developers {
@@ -101,9 +101,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/phodal/chapi.git")
-                    developerConnection.set("scm:git:ssh://github.com/phodal/chapi.git")
-                    url.set("https://github.com/phodal/chapi/")
+                    connection.set("scm:git:git://github.com/phodal-archive/rewrite-spike.git")
+                    developerConnection.set("scm:git:ssh://github.com/phodal-archive/rewrite-spike.git")
+                    url.set("https://github.com/phodal-archive/rewrite-spike/")
                 }
             }
         }
