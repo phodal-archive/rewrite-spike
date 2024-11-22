@@ -128,3 +128,8 @@ signing {
     useGpgCmd()
     sign(publishing.publications)
 }
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
