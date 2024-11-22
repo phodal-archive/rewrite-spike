@@ -17,7 +17,7 @@ plugins {
 }
 
 // Set as appropriate for your organization
-group = "com.phodal"
+group = "org.archguard"
 description = "Rewrite recipes."
 
 dependencies {
