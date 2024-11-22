@@ -72,10 +72,53 @@ configure<PublishingExtension> {
 }
 
 publishing {
-  repositories {
-      maven {
-          name = "moderne"
-          url = uri("https://us-west1-maven.pkg.dev/moderne-dev/moderne-recipe")
-      }
-  }
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            versionMapping {
+                usage("java-api") {
+                    fromResolutionOf("runtimeClasspath")
+                }
+                usage("java-runtime") {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name.set("Chapi")
+                description.set("Chapi is A common language meta information convertor, convert different languages to same meta-data model")
+                url.set("https://github.com/phodal/chapi")
+                licenses {
+                    license {
+                        name.set("MPL 2.0")
+                        url.set("https://github.com/phodal/chapi/blob/master/LICENSE")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("Modernizing")
+                        name.set("Modernizing Team")
+                        email.set("h@phodal.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/phodal/chapi.git")
+                    developerConnection.set("scm:git:ssh://github.com/phodal/chapi.git")
+                    url.set("https://github.com/phodal/chapi/")
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+
+            credentials {
+                username = (if (project.findProperty("sonatypeUsername") != null) project.findProperty("sonatypeUsername") else System.getenv("MAVEN_USERNAME")).toString()
+                password = (if (project.findProperty("sonatypePassword") != null) project.findProperty("sonatypePassword") else System.getenv("MAVEN_PASSWORD")).toString()
+            }
+        }
+    }
 }
